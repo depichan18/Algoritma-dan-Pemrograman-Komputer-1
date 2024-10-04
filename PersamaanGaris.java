@@ -24,9 +24,13 @@ public class PersamaanGaris {
             System.out.println(a + "x + " + b + "y " + c + " = 0.");
         }
 
-        double gradien = -(double) a / b;
-        double titikPotong = -(double) c / b;
+        double gradien1 = -(double) a / b;
+        double gradien = Math.round(gradien1 * 100.0) / 100.0;
 
+        double titikPotong1 = -(double) c / b;
+        double titikPotong = Math.round(titikPotong1 * 100.0) / 100.0;
+
+        
         System.out.println("Masukkan gradien:");
         double gradienInput = input.nextDouble();
 
