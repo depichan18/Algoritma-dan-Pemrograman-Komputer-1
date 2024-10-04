@@ -18,7 +18,7 @@ public class TugasBesar {
             String pilihan = input.next();
             
             switch (pilihan) {
-                case "1":
+                case "1": {
                     System.out.println("Topik apa yang ingin kamu pelajari?");
                     System.out.println("1. Persamaan Garis");
                     System.out.println("2. Persamaan Lingkaran");
@@ -27,38 +27,37 @@ public class TugasBesar {
 
                     switch (pilihank) {
                         case "1":
-                            int a = (int) (1 + (Math.random() * 11) - 20);
+                            int a = (int) (Math.random() * 21) - 10;
                             int b = (int) (1 + (Math.random() * 11));
-                            int c = (int) (1 + (Math.random() * 11) - 20);
+                            int c = (int) (Math.random() * 21) - 10;
 
                             System.out.println("Berikut soal persamaan garis yang dapat kamu kerjakan: ");
                             System.out.println("Tentukan gradien dan titik potong garis berikut dengan sumbu-y :");
 
                             if (a>=0 && c>= 0) {
-                                System.out.println(a + "x + " + b + "y +" + c + " = 0.");
+                                System.out.println(a + "x + " + b + "y + " + c + " = 0.");
                             }
                             else if (a>=0 && c<0) {
                                 System.out.println(a + "x + " + b + "y " + c + " = 0");
                             }
                             else if (a<0 && c>=0) {
-                                System.out.println("-" + a + "x + " + b + "y +" + c + " = 0");
+                                System.out.println(a + "x + " + b + "y + " + c + " = 0");
                             }
                             else {
                                 System.out.println(a + "x + " + b + "y " + c + " = 0.");
                             }
 
                             double gradien1 = -(double) a / b;
-                            String gradien2 = String.format("%.2f", gradien1);
-                            double gradien = Double.parseDouble(gradien2);
+                            double gradien = Math.round(gradien1 * 100.0) / 100.0;
 
                             double titikPotong1 = -(double) c / b;
-                            String titikPotong2 = String.format("%.2f", titikPotong1);
-                            double titikPotong = Double.parseDouble(titikPotong2);
+                            double titikPotong = Math.round(titikPotong1 * 100.0) / 100.0;
 
-                            System.out.print("Masukkan gradien:");
+                            
+                            System.out.println("Masukkan gradien:");
                             double gradienInput = input.nextDouble();
 
-                            System.out.print("Masukkan titik potong:");
+                            System.out.println("Masukkan titik potong:");
                             double titikPotongInput = input.nextDouble();
 
                             if (gradien == gradienInput && titikPotong == titikPotongInput) {
@@ -71,12 +70,15 @@ public class TugasBesar {
                                 System.out.println("Jawaban kamu salah!");
                             }
 
-                            System.out.printf("Gradiennya adalah %.2f dan titik potongnya dengan sumbu-y adalah %.2f\n", gradien, titikPotong);
+                            System.out.println("Gradiennya adalah " + gradien + " dan titik potongnya dengan sumbu-y adalah " +titikPotong + ".");
 
                         break;
                         default:
                             System.out.println("Pilihan tidak tersedia");
+
                     }
+                break;
+                }
                 case "2":
                     System.out.println("Topik apa yang ingin kamu pelajari?");
                     System.out.println("1. Vektor");
@@ -87,7 +89,15 @@ public class TugasBesar {
                     System.out.println("Pilihan kamu tidak ada dalam daftar pilihan!");
             }
 
-            repeat++;
+            System.out.println("Apakah ingin lanjut latihan?");
+            String jawabS = input.next();
+            if (jawabS.equalsIgnoreCase("ya") || jawabS.equalsIgnoreCase("y")) {
+                repeat ++;
+            }
+            else {
+                System.out.println("Terima kasih telah datang di klinik ...!");
+                break;
+            }
         }
     }
 }
