@@ -1,11 +1,15 @@
+package tugasbesar;
+
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class TugasBesar {
+
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
 
-        System.out.println("Halo, selamat datang di ... .");
+        System.out.println("Halo, selamat datang di kelas BCD.");
         System.out.println("Soal apa yang ingin kamu pelajari hari ini? ");
 
         int repeat = 0;
@@ -22,7 +26,7 @@ public class TugasBesar {
                 case "1": {
                     System.out.println("Topik apa yang ingin kamu pelajari?");
                     System.out.println("1. Persamaan Garis");
-                    System.out.println("2. Persamaan Lingkaran");
+                    System.out.println("2. Fungsi");
                     System.out.print("Masukkan pilihan berupa nomor(contoh 1): ");
                     String pilihanK = input.next();
 
@@ -74,7 +78,20 @@ public class TugasBesar {
                             System.out.println("Gradiennya adalah " + gradien + " dan titik potongnya dengan sumbu-y adalah " + titikPotong + ".");
                         break;
                         case "2":
+                            int x = (int)  (1 + (Math.random())*10);
+                            System.out.println("Berapakah nilai dari g(x) = 5x + 2, jika x = " + x);
+                            System.out.print("g(x)= ");
+                            int inp = input.nextInt();
+                            
+                            int gx = 5*x + 2;
 
+                            if (inp == gx) {
+                                System.out.println("Jawaban kamu benar!");
+                            }
+                            else {
+                                System.out.println("Jawaban kamu salah!");
+                            }
+                            System.out.println("Nilai fungsi g(x) adalah " + gx);
                         break;
                         default:
                             System.out.println("Pilihan tidak tersedia");
@@ -102,8 +119,9 @@ public class TugasBesar {
                             int c = (int) (Math.pow(a,2)+Math.pow(b,2)- Math.pow(r, 2));
                                 
                             // Soal persamaan lingkaran X^2+Y^2+2%dx+2%dy+c
-                            System.out.printf("Diketahui persamaan lingkaran X^2+Y^2+%dx+%dy+%d = 0.\n",2*a,2*b,c);
-                            System.out.println("Tuliskan jari-jari dari lingkaran tersebut\t: ");
+                            System.out.println("Tuliskan jari-jari dari lingkaran berikut:");
+                            System.out.printf("X^2+Y^2+%dx+%dy+%d = 0.\n",2*a,2*b,c);
+                            System.out.print("Masukkan jari-jari : ");
                                 
                             // Input User
                             int inputUser = input.nextInt();
@@ -128,6 +146,7 @@ public class TugasBesar {
                             } else {
                                 System.out.println("Jawaban kamu salah!");
                             }
+                            System.out.println("Jawaban yang benar adalah " + p);
                             
                             System.out.println(" ");
                             System.out.println("Mari kita lanjut ke soal berikutnya!");
@@ -146,14 +165,16 @@ public class TugasBesar {
                                 System.out.println("Jawaban kamu benar!");
                                 } else { 
                                     System.out.println("Jawaban kamu salah!");
-                                }
+                                } 
+                                System.out.println("Jawaban yang benar adalah (a) kanan");
                             } else if (p<0) {
                                 String kunci1 = "b";
                                 if(answerA.equals(kunci1)) {
                                     System.out.println("Jawaban kamu benar!");
                                 } else { 
                                     System.out.println("Jawaban kamu salah!");
-                                }  
+                                } 
+                                System.out.println("Jawaban yang benar adalah (b) kiri");  
                             }
                         break;
                         default:
@@ -193,6 +214,7 @@ public class TugasBesar {
                                     correctAnswer = 1.0 / 6.0;
                                 }
                             }
+                            correctAnswer = Math.round(correctAnswer * 100.0) / 100.0;
 
                             System.out.println(question);
                             System.out.println("Masukkan jawaban Anda dalam bentuk desimal (contoh: 0.8):");
@@ -272,7 +294,7 @@ public class TugasBesar {
                             } else if (mean != meanAnw && ragam == ragamAnw && sB != sBAnw) {
                                 System.out.println("Nilai Ragam Sudah Benar, "
                                         + "Namun Mean dan Simpangan Bakunya Masih Salah.");
-                            } else if (mean != meanAnw && ragam != ragamAnw && sB != sBAnw) {
+                            } else if (mean != meanAnw && ragam != ragamAnw && sB == sBAnw) {
                                 System.out.println("Nilai Simpangan Baku Sudah Benar, "
                                         + "Namun Mean dan Ragamnya Masih Salah.");
                             } else {
@@ -299,9 +321,10 @@ public class TugasBesar {
                 repeat ++;
             }
             else {
-                System.out.println("Terima kasih telah datang di klinik ...!");
+                System.out.println("Terima kasih telah datang di kelas BCD!");
                 break;
             }
         }
+        input.close();
     }
 }
