@@ -1,4 +1,3 @@
-package point.in.a.circle;
 import java.util.Scanner;
 
 public class PointInACircle {
